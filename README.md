@@ -21,12 +21,17 @@ This is a responsive and interactive Magic: The Gathering deck builder to enhanc
 
 ## Architecture
 
-The application leverages the Scryfall API to populate its PostgreSQL database with MTG card data, ensuring a comprehensive and up-to-date card library. The data is fetched from the database using Spring Boot, Hibernate, and Spring Data JPA, forming a robust backend that provides the frontend with the necessary data. The frontend, built with React and TypeScript, presents the data in a user-friendly interface. This layered architecture promotes modularity, maintainability, and scalability, providing a solid foundation for future enhancements.
+The application leverages the Scryfall API to populate its PostgreSQL database with MTG card data, ensuring a comprehensive and up-to-date card library.
+
+The data is fetched from the database using Spring Boot, Hibernate, and Spring Data JPA, forming a robust backend that provides the frontend with the necessary data.
+
+The frontend, built with React and TypeScript, presents the data in a user-friendly interface. This layered architecture promotes modularity, maintainability, and scalability, providing a solid foundation for future enhancements.
 
 ## Built With
 
 This project is built with an array of reliable technologies to ensure high performance and seamless user experience. Below is a list of the major libraries and tools used:
 
+JS:
 - [React](https://reactjs.org/): A popular JavaScript library for building user interfaces, especially single-page applications.
 - [TypeScript](https://www.typescriptlang.org/): A statically typed superset of JavaScript that adds types to the language, improving developer productivity and code quality.
 - [Vite](https://vitejs.dev/): A build tool that significantly improves the frontend development experience. It provides faster and leaner development for modern web projects.
@@ -36,11 +41,17 @@ This project is built with an array of reliable technologies to ensure high perf
 - [Spring Boot](https://spring.io/projects/spring-boot): An open-source Java-based framework used to create stand-alone, production-grade Spring-based Applications with minimal effort.
 - [Spring Data JPA](https://spring.io/projects/spring-data-jpa): It simplifies the development of creating a data access layer by reducing the amount of boilerplate code required.
 - [Hibernate](https://hibernate.org/): An object-relational mapping tool for the Java programming language. It provides a framework for mapping an object-oriented domain model to a relational database, enabling developers to more easily manipulate database data.
+
+Data:
 - [PostgreSQL](https://www.postgresql.org/): An advanced, open-source relational database management system.
+
+Java:
 - [Spring Security](https://spring.io/projects/spring-security): A powerful and highly customizable authentication and access-control framework to secure Spring-based applications.
 - [JSON Web Token (JWT)](https://jwt.io/): An open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
 - [Lombok](https://projectlombok.org/): A Java library that plugs into your editor and build tools, spicing up your Java by reducing the boilerplate code.
 
+Rust:
+...
 
 ## Features
 
