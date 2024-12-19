@@ -1,0 +1,40 @@
+services:
+    pg-database:
+        image: postgres
+        restart: always
+        volumes:
+            - /r110-containers/db-data/:/var/lib/postgresql/data/
+        networks:
+            - mtg-lounge
+        environment:
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: example
+            POSTGRES_DB: mtg_lounge
+
+    j-server:
+        image: openjdk
+        depends_on:
+            - pg-database
+        networks:
+            - mtg-lounge
+        command: >
+            sh -c "
+                cd /server
+                mvn spring-boot:run
+            "
+
+    ts-client:
+        image:
+        depends_on:
+            - pg-database
+        networks:
+            - mtg-lounge
+        command: >
+            sh -c "
+                cd /client
+                npm run dev
+            "
+
+networks:
+  elastic:
+    driver: bridge
