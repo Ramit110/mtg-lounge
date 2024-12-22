@@ -2,7 +2,7 @@
 .DS_Store
 
 ### Database ###
-db-data/*
+db-data/
 
 j-server/target/
 j-server/!.mvn/wrapper/maven-wrapper.jar
