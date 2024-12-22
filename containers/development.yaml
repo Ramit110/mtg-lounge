@@ -3,18 +3,22 @@ services:
         image: postgres
         restart: always
         volumes:
-            - /r110-containers/db-data/:/var/lib/postgresql/data/
+            - ./../db-data:/var/lib/postgresql/data/
         networks:
             - mtg-lounge
+        ports:
+            - "5432:5432"
         environment:
             POSTGRES_USER: root
             POSTGRES_PASSWORD: example
             POSTGRES_DB: mtg_lounge
 
     j-server:
-        image: openjdk
+        image: maven
         depends_on:
             - pg-database
+        volumes:
+            - ./../j-server:/server
         networks:
             - mtg-lounge
         command: >
@@ -24,17 +28,22 @@ services:
             "
 
     ts-client:
-        image:
+        image: node
         depends_on:
             - pg-database
+        volumes:
+            - ./../client:/client
         networks:
             - mtg-lounge
+        ports:
+            - "5173:5173"
         command: >
             sh -c "
                 cd /client
+                npm install
                 npm run dev
             "
 
 networks:
-  elastic:
+  mtg-lounge:
     driver: bridge
