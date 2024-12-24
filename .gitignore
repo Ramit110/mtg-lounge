@@ -5,6 +5,14 @@
 db-data/
 
 j-server/target/
+j-server/ch/
+j-server/com/
+j-server/commons-io/
+j-server/io/
+j-server/jakarta/
+j-server/javax/
+j-server/net/
+j-server/org/
 j-server/!.mvn/wrapper/maven-wrapper.jar
 j-server/!**/src/main/**/target/
 j-server/!**/src/test/**/target/

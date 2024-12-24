@@ -18,12 +18,12 @@ services:
         depends_on:
             - pg-database
         volumes:
-            - ./../j-server:/server
+            - ./../j-server:/root/.m2/repository
         networks:
             - mtg-lounge
         command: >
             sh -c "
-                cd /server
+                cd /root/.m2/repository
                 mvn spring-boot:run
             "
 
@@ -41,7 +41,7 @@ services:
             sh -c "
                 cd /client
                 npm install
-                npm run dev
+                npm run dev -- --host
             "
 
 networks:
