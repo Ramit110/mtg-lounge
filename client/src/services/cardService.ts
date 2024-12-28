@@ -3,7 +3,7 @@ import axios from "axios";
 export const getCardsByColor = async (color: string, page: number) => {
     try {
         const response = await axios.get(
-            `http://localhost:8080/api/cards/color/${color}?page=${page}`
+            `http://localhost:5173/api/cards/color/${color}?page=${page}`
         );
         return response.data;
     } catch (error) {
@@ -14,7 +14,7 @@ export const getCardsByColor = async (color: string, page: number) => {
 export const getCardsByName = async (name: string, page: number) => {
     try {
         const response = await axios.get(
-            `http://localhost:8080/api/cards/search/${name}?page=${page}`
+            `http://localhost:5173/api/cards/search/${name}?page=${page}`
         );
         return response.data;
     } catch (error) {
@@ -25,7 +25,7 @@ export const getCardsByName = async (name: string, page: number) => {
 export const fetchCards = async (page: number) => {
     try {
         const response = await axios.get(
-            `http://localhost:8080/api/cards?page=${page}`
+            `http://localhost:5173/api/cards?page=${page}`
         );
         if (response.status === 200) {
             return response.data;

@@ -1,0 +1,57 @@
+services:
+    pg-database:
+        image: postgres
+        restart: always
+        volumes:
+            - ./../container_data/db-data:/var/lib/postgresql/data/
+        networks:
+            - mtg-lounge
+        environment:
+            - POSTGRES_USER=root
+            - POSTGRES_PASSWORD=password
+            - POSTGRES_DB=mtg_lounge
+
+    j-server:
+        image: maven:3.9.9-amazoncorretto-17-debian
+        depends_on:
+            - pg-database
+        volumes:
+            - ./../j-server:/root/.m2/repository
+        networks:
+            - mtg-lounge
+        command: >
+            sh -c "
+                cd /root/.m2/repository
+                mvn spring-boot:run
+            "
+
+    ts-client:
+        image: node
+        depends_on:
+            - pg-database
+        volumes:
+            - ./../client:/client
+        networks:
+            - mtg-lounge
+        command: >
+            sh -c "
+                cd /client
+                npm install
+                npm run dev -- --host
+            "
+
+    nginx:
+        image: nginx
+        depends_on:
+            - j-server
+            - ts-client
+        volumes:
+            - ./../nginx:/etc/nginx/templates/
+        ports:
+            - "5173:5173"
+        networks:
+            - mtg-lounge
+
+networks:
+    mtg-lounge:
+        driver: bridge
