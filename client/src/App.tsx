@@ -146,7 +146,7 @@ function App() {
         // handle the login here
     };
     const handleRegister = (username: string, password: string) => {
-        fetch("http://127.0.0.1:8080/api/users/register", {
+        fetch("http://localhost:8080/api/users/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
