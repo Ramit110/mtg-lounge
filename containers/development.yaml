@@ -7,11 +7,11 @@ services:
         networks:
             - mtg-lounge
         ports:
-            - "5432:5432"
+            - 5433:5432
         environment:
-            POSTGRES_USER: root
-            POSTGRES_PASSWORD: example
-            POSTGRES_DB: mtg_lounge
+            - POSTGRES_USER=root
+            - POSTGRES_PASSWORD=password
+            - POSTGRES_DB=mtg_lounge
 
     j-server:
         image: maven:3.9.9-amazoncorretto-17-debian
@@ -21,6 +21,8 @@ services:
             - ./../j-server:/root/.m2/repository
         networks:
             - mtg-lounge
+        ports:
+            - 8080:8080
         command: >
             sh -c "
                 cd /root/.m2/repository
@@ -36,7 +38,7 @@ services:
         networks:
             - mtg-lounge
         ports:
-            - "5173:5173"
+            - 5173:5173
         command: >
             sh -c "
                 cd /client
