@@ -67,51 +67,12 @@ Rust:
 
 ### Prerequisites
 
-- Node.js
-- Java 8 or newer
-- Maven
-- PostgreSQL
+- Docker (Yes) that's it now!
 
-### Setting Up PostgreSQL Server
+### Starting the Application
 
-1. Download and install PostgreSQL from [here](https://www.postgresql.org/download/).
+1. Use ``docker compose -f development.yaml up -d``
 
-2. Once installed, open the pgAdmin tool that comes with PostgreSQL.
+2. Connect to http://localhost:5173/
 
-3. Create a new database for this project. You can name it `mtg_lounge`.
-
-### Installation
-
-1. Clone the repo
-
-    ```sh
-    git clone https://github.com/revesz21/mtg-lounge.git
-    ```
-    
-2. Install NPM packages
-
-    ```bash
-    cd client
-    npm install
-    ```
-
-3. On the server side, set the `spring.datasource.url`, `spring.datasource.username`, and `spring.datasource.password` fields in the `application.properties` file to the URL, username, and password of your PostgreSQL database, respectively. For example:
-    ```properties
-    spring.datasource.driver-class-name=org.postgresql.Driver
-    spring.datasource.url=jdbc:postgresql://localhost:5432/mtg_lounge
-    spring.datasource.username=postgres
-    spring.datasource.password=your-password
-    ```
-    
-4. Run the Spring Boot server
-
-    ```bash
-    cd ../server
-    mvn spring-boot:run
-    ```
-    
-5. Start the React app (in another terminal window)
-    ```bash
-    cd ../client
-    npm run dev
-    ```
+3. Use the application!
