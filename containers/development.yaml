@@ -3,11 +3,9 @@ services:
         image: postgres
         restart: always
         volumes:
-            - ./../db-data:/var/lib/postgresql/data/
+            - ./../container_data/db-data:/var/lib/postgresql/data/
         networks:
             - mtg-lounge
-        ports:
-            - 5433:5432
         environment:
             - POSTGRES_USER=root
             - POSTGRES_PASSWORD=password
@@ -21,8 +19,6 @@ services:
             - ./../j-server:/root/.m2/repository
         networks:
             - mtg-lounge
-        ports:
-            - 8080:8080
         command: >
             sh -c "
                 cd /root/.m2/repository
@@ -37,8 +33,6 @@ services:
             - ./../client:/client
         networks:
             - mtg-lounge
-        ports:
-            - 5173:5173
         command: >
             sh -c "
                 cd /client
@@ -46,6 +40,18 @@ services:
                 npm run dev -- --host
             "
 
-networks:
+    nginx:
+        image: nginx
+        volumes:
+            - ./../container_data/templates:/etc/nginx/templates
+        ports:
+            - "8080:8080"
+            - "5173:5173"
+        environment:
+            - NGINX_HOST=localhost
+            - NGINX_PORT=80
+        networks:
+            - mtg-lounge
+
   mtg-lounge:
     driver: bridge
