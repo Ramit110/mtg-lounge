@@ -1,4 +1,4 @@
-# <img src="https://github.com/revesz21/mtg-lounge/assets/106816098/f7456ef0-33c9-4bc0-9663-1c620659245a" width="300">
+# MTG Collection Manager
 
 ## Table of Contents
 
@@ -15,17 +15,11 @@
 
 ## About The Project
 
-<img src="https://github.com/revesz21/mtg-lounge/assets/106816098/d5049f1c-032d-444c-b9a7-255dace68c09" width="550">
-
-This is a responsive and interactive Magic: The Gathering deck builder to enhance your gameplay experience. It offers an easy-to-use interface for searching through the MTG card library and creating a custom deck. Features include card search functionality, advanced card filtering options, drag-and-drop deck building, deck export and a simple and clean user interface.
+The aim of this project is to provide a self hostable site that can act as a place to manage MtG collections, decks and intergrate those together.
 
 ## Architecture
 
-The application leverages the Scryfall API to populate its PostgreSQL database with MTG card data, ensuring a comprehensive and up-to-date card library.
-
-The data is fetched from the database using Spring Boot, Hibernate, and Spring Data JPA, forming a robust backend that provides the frontend with the necessary data.
-
-The frontend, built with React and TypeScript, presents the data in a user-friendly interface. This layered architecture promotes modularity, maintainability, and scalability, providing a solid foundation for future enhancements.
+DOCKER! (more soon:tm:)
 
 ## Built With
 
@@ -44,6 +38,7 @@ JS:
 
 Data:
 - [PostgreSQL](https://www.postgresql.org/): An advanced, open-source relational database management system.
+- [MongoDB](https://www.mongodb.com/): An interesting database system that can be used to store unstructured data (like collection and deck lists).
 
 Java:
 - [Spring Security](https://spring.io/projects/spring-security): A powerful and highly customizable authentication and access-control framework to secure Spring-based applications.
