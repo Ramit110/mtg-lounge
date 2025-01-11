@@ -30,7 +30,7 @@ services:
         depends_on:
             - pg-database
         volumes:
-            - ./../client:/client
+            - ./../js-client:/client
         networks:
             - mtg-lounge
         command: >
