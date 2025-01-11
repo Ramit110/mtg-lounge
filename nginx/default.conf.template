@@ -11,4 +11,7 @@ server {
     location /api {
         proxy_pass  http://j-server:8080;
     }
+    location /site {
+        proxy_pass  http://rs-server:8080;
+    }
 }
