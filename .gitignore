@@ -39,4 +39,4 @@ j-server/!**/src/main/**/build/
 j-server/!**/src/test/**/build/
 
 ### Cargo things
-backend-v1/target/
+backend/target/

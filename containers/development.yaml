@@ -24,6 +24,13 @@ services:
                 cd /root/.m2/repository
                 mvn spring-boot:run
             "
+    rs-server:
+        image:
+        depends_on:
+            - pg-database
+        networks:
+            - mtg-loungevolumes:
+            - ./../backend:...
 
     ts-client:
         image: node
