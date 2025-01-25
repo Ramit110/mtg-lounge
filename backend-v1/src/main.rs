@@ -18,7 +18,7 @@ async fn main() {
     let app = Router::new()
         .route("/", get(hello))
         .route("/site/api/{version}/cards", get(get_cards));
-    
+
     let app = app.fallback(api_404);
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:80").await.unwrap();
