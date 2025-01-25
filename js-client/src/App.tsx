@@ -2,18 +2,17 @@ import React, { useState, useEffect } from "react";
 import Searchfield from "./components/SearchField";
 import Card from "./components/Card";
 import Loader from "./components/Loader";
-import { fetchCards, getCardsByName } from "./services/cardService";
+import { getCards, getCardsByColor, getCardsByName } from "./services/cardService";
 import { useDeckManager } from "./hooks/useDeckManager";
 import DeckCard from "./components/DeckCard";
 import ColorFilter from "./components/ColorFilter";
-import { getCardsByColor } from "./services/cardService";
 import Login from "./components/Login";
 import LoginRequired from "./components/LoginRequired";
-import lounge from "../public/mtg-lounge-logo.png";
 import Register from "./components/Register";
 import SunIcon from "./icons/SunIcon";
 import MoonIcon from "./icons/MoonIcon";
 import LoginIcon from "./icons/LoginIcon";
+import lounge from "../public/mtg-lounge-logo.png";
 import "./index.css";
 
 export interface CardType {
@@ -57,7 +56,7 @@ function App() {
                 if (selectedColor !== "") {
                     result = await getCardsByColor(selectedColor, page);
                 } else {
-                    result = await fetchCards(page);
+                    result = await getCards(page);
                 }
                 setAllCards(result);
                 setHasNextPage(result.length > 0);

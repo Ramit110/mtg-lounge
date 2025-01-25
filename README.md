@@ -23,6 +23,10 @@ DOCKER! (more soon:tm:)
 
 ## Built With
 
+Stnadards:
+
+- [RESTful API Design](https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design): Best practice guide for RESTful APIs, all endpoints should follow this guide (internal and external).
+
 This project is built with an array of reliable technologies to ensure high performance and seamless user experience. Below is a list of the major libraries and tools used:
 
 JS:
