@@ -58,6 +58,7 @@ function App() {
                 } else {
                     result = await getCards(page);
                 }
+                console.log(result);
                 setAllCards(result);
                 setHasNextPage(result.length > 0);
             } catch (error) {
@@ -222,11 +223,7 @@ function App() {
                                     No search results.
                                 </div>
                             ) : (
-                                renderCards(
-                                    searchedResults.length > 0
-                                        ? searchedResults
-                                        : allCards
-                                )
+                                renderCards(searchedResults)
                             )}
                         </div>
                     )}

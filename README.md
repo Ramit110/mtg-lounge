@@ -70,7 +70,7 @@ Rust:
 
 ### Starting the Application
 
-1. Use ``docker compose -f development.yaml up -d``
+1. Use ``docker compose -f development.yaml up -d --force-recreate``
 
 2. Connect to http://localhost:5173/
 

@@ -10,7 +10,7 @@ use std::collections::HashMap;
 
 #[derive(Serialize)]
 struct Cards {
-    message: &'static str,
+    data: &'static str,
 }
 
 #[tokio::main]
@@ -27,7 +27,7 @@ async fn main() {
 
 async fn hello() -> (StatusCode, Json<Cards>) {
     let response = Cards {
-        message: "Hello, world!",
+        data: "Hello, world!",
     };
 
     (StatusCode::OK, Json(response))
@@ -35,7 +35,7 @@ async fn hello() -> (StatusCode, Json<Cards>) {
 
 async fn get_cards() -> (StatusCode, Json<Cards>) {
     let response = Cards {
-        message: "Hello, world!",
+        data: "Hello, world!",
     };
 
     (StatusCode::OK, Json(response))

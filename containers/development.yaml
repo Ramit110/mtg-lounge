@@ -36,7 +36,9 @@ services:
             sh -c "
                 cd /usr/src/backend
                 cargo install --path .
-                cargo build
+                cargo build --locked --release
+                cp target/release/mtg_lounge_collections /bin/server
+                /bin/server
             "
 
     ts-client:
