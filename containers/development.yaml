@@ -25,12 +25,19 @@ services:
                 mvn spring-boot:run
             "
     rs-server:
-        image:
+        image: rust:1.84
         depends_on:
             - pg-database
         networks:
-            - mtg-loungevolumes:
-            - ./../backend:...
+            - mtg-lounge
+        volumes:
+            - ./../backend:/usr/src/backend
+        command: >
+            sh -c "
+                cd /usr/src/backend
+                cargo install --path .
+                cargo build
+            "
 
     ts-client:
         image: node
